@@ -1,0 +1,8 @@
+{
+  "Page1":{
+    "txtSearch":["//input[@title=\"Search\"]","XPATH"],
+    "btnSubmit":["center:nth-child(1) > input[value=\"Google Search\"]","CSS"],
+    "3MLink":["//a/h3[text()='History | 3M United States']","XPATH"]
+
+  }
+}
