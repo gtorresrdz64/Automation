@@ -17,14 +17,14 @@ import org.testng.TestNG;
 public class TestNGCore {
 
     @Autowired
-    private TestManagerCenter testManagerCenter;
+    private TestFilesManager testFilesManager;
 
     private List<String> errors;
     public Object[][] inputTestData;
 
     public void runTestCase(int testId,Class testcase) throws IOException {
         String path= testcase.getPackage().toString().replace("package ","");
-        testManagerCenter.setAnnexedFiles(path,testcase.getSimpleName());//classname used to know to which test case and the annexed files
+        testFilesManager.setAnnexedFiles(path,testcase.getSimpleName());//classname used to know to which test case and the annexed files
         //Call the file of paramaters testData
         testNGCore(testId,testcase);
 

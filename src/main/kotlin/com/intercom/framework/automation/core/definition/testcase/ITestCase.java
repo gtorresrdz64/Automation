@@ -6,6 +6,6 @@ import java.io.IOException;
 
 public interface ITestCase {
 
-    public void setTestSettings() throws IOException;
+  void execute();
 
 }

@@ -1,11 +1,15 @@
 package com.intercom.framework.automation.core.definition.webpage;
 
+import lombok.Setter;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
+import org.springframework.stereotype.Component;
 
+import java.time.Duration;
 import java.util.List;
 import java.util.Map;
 
+@Component
 public class WebPage {
 
     protected WebDriver driver;
@@ -14,19 +18,34 @@ public class WebPage {
 
     protected List<String> webComponentsOfThePage;
 
+    private WebComponent component;
+
+    @Setter
+    private long waitTime = 0;
+
 
     public void setPageWebComponents(WebDriver driver, Map locators){
         this.driver= driver;
         this.locators= locators;
+        this.component= new WebComponent(driver);
     }
 
-    protected void Name(String webPageName){
+    public void loadWebComponents(String webPageName){
         webComponentsOfThePage= locators.get(webPageName);
     }
 
     public void openWebPage(String domain){
-            driver.get(domain);
+        driver.get(domain);
     }
+
+    public void WaitForPageLoad(){
+        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(waitTime));
+    }
+
+    /*public WebComponent Component(String name){
+
+        this.component.setComponentData(name,)
+    }*/
 
     protected String seleniumFoundElementBy(String findby) {
 

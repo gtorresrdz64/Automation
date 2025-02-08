@@ -1,28 +1,21 @@
 package com.intercom.framework.automation.testsuites.firsttestsuite;
 
-import com.intercom.framework.automation.core.definition.testcase.AbstractTestCase;
-import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
+import org.springframework.boot.test.context.SpringBootTest;
+import com.intercom.framework.automation.core.definition.testcase.TestComponentsManager;
 import org.testng.annotations.Test;
 
-public class TestCase extends AbstractTestCase {
-
-    private WebDriver driver;
-
-    @BeforeTest
-    public void BeforeMethod() throws Exception{
-       setTestSettings();
-    }
+@SpringBootTest
+public class TestCase extends TestComponentsManager {
 
     @Test
-    public void testLogic(){
+    public void execute(){
+        System.out.println("Debug");
+        cmd.loadWebComponents("Page1");
+        cmd.openWebPage("www.google.com");
+
 
     }
 
-    @AfterTest
-    public void AfterMethod() throws Exception{
 
-    }
 
 }

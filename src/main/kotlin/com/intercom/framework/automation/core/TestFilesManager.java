@@ -2,22 +2,20 @@ package com.intercom.framework.automation.core;
 
 import com.intercom.framework.automation.services.locators.JsonLocatorsReader;
 import com.intercom.framework.automation.services.testdata.CSVTestDataReader;
-import org.openqa.selenium.json.Json;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.util.Map;
 
 @Component
-public class TestManagerCenter {
+public class TestFilesManager {
 
     private int count;
     private static JsonLocatorsReader jsonLocatorsReader;
 
     private static CSVTestDataReader csvTestDataReader;
 
-    public TestManagerCenter(){
+    public TestFilesManager(){
         jsonLocatorsReader = new JsonLocatorsReader();
         csvTestDataReader = new CSVTestDataReader();
     }
